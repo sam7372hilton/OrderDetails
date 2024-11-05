@@ -1,0 +1,27 @@
+{
+    "welcomeFile": "orderdetails_app/webapp/",
+    "authenticationMethod": "xsuaa",
+    "sessionTimeout": 10,
+    "pluginMetadataEndpoint": "/metadata",
+    "routes": [
+        {
+            "source": "orderdetails_app/webapp/(.*)$",
+            "target": "$1",
+            "destination": "ui5",
+            "localDir": "orderdetails_app/webapp/",
+            "csrfProtection": false,
+            "authenticationType": "xsuaa"
+        },
+        {
+            "source": "^/(.*)$",
+            "authenticationType": "xsuaa",
+            "localDir": "static-content",
+            "destination": "srv-api",
+            "csrfProtection": false
+        }
+    ],
+    "logout": {
+        "logoutEndpoint": "/my/logout",
+        "logoutPage": "https://www.google.com"
+    }
+}

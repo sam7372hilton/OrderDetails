@@ -1,0 +1,57 @@
+{
+  "xsappname": "OrderDetails",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.Viewer",
+      "description": "display only"
+    },
+    {
+      "name": "$XSAPPNAME.Admin",
+      "description": "Edit, delete Orders"
+    }
+  ],
+  "attributes": [
+    {
+      "name": "OrderType",
+      "description": "OrderType",
+      "valueType": "string"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "Viewer",
+      "description": "View all Order",
+      "default-role-name": "Viewer: Authorized to View All Orders",
+      "scope-references": [
+        "$XSAPPNAME.Viewer"
+      ],
+      "attribute-references": [
+        {
+          "name": "OrderType"
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "description": "View and Edit all Order",
+      "default-role-name": "Viewer: Authorized to View and Edit All Orders",
+      "scope-references": [
+        "$XSAPPNAME.Admin"
+      ]
+    }
+  ],
+  "authorities": [
+    "$ACCEPT_GRANTED_AUTHORITIES"
+  ],
+  "oauth2-configuration": {
+    "token-validity": 900,
+    "redirect-uris": [
+      "https://api.cf.us10-001.hana.ondemand.com/login/callback"
+    ],
+    "credential-types": [
+      "binding-secret",
+      "x509"
+    ]
+  },
+  "xsenableasyncservice": "true"
+}

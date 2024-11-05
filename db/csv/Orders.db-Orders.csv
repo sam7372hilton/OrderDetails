@@ -1,0 +1,6 @@
+OrderNum,CustomerID,OrderDate,OrderName,OrderType
+1001,CUST001,2023-01-01,First Order,Standard
+1002,CUST002,2023-01-02,Second Order,Express
+1003,CUST003,2023-01-03,Third Order,Standard
+1004,CUST004,2023-01-04,Fourth Order,Express
+1005,CUST005,2023-01-05,Fifth Order,Standard

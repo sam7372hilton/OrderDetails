@@ -1,0 +1,44 @@
+### 
+
+post http://localhost:4004/odata/v4/order/OrderSrv
+Content-Type: application/json
+
+{
+  "OrderNum": "2",
+  "CustomerID": "A",
+  "OrderDate": "2023-01-01",
+  "OrderType": "AA",  
+  "items": [
+    {
+      "OrderNum_OrderNum": "2",
+      "ItemNumber": "1",
+      "MaterialID": "MM",
+      "Quantity": "1",
+      "Price": "120.00"
+    }    
+  ],
+  "Scheduled":[{
+    "ItemNumber":"1",
+    "OrderNum_OrderNum": "2",
+    "DeliveryQuantity":"1",
+    "DeliveryDate":"Today"
+  }]
+}
+
+
+
+
+###
+GET http://localhost:4004/odata/v4/order/OrderSrv(1001)
+
+###
+GET   http://localhost:4004/odata/v4/order/OrderSrv
+Authorization: Basic binu:
+
+###
+GET   http://localhost:4004/odata/v4/order/OrderSrv
+Authorization: Basic sam:
+
+
+###
+get http://localhost:4004/odata/v4/order/OrderSrv(1001)?$expand=items

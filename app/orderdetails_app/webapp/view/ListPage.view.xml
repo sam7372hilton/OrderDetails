@@ -1,0 +1,25 @@
+<mvc:View
+    controllerName="orderdetailsapp.controller.ListPage"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <List
+                id='idList'
+                items="{/OrderSrv}"
+            >
+                <ObjectListItem
+                    id="idObj1"
+                    title="{OrderNum}"
+                    number="{OrderType}"
+                    numberUnit="{OrderDate}"
+                />
+            </List>
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,65 @@
+{
+  "name": "OrderDetails",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@cap-js/hana": "^1",
+    "@sap/approuter": "^17.0.0",
+    "@sap/cds": "^8",
+    "@sap/xssec": "^4",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.6",
+    "@cap-js/sqlite": "^1.7.5",
+    "@sap/cds-dk": "^8",
+    "@sap/ux-specification": "UI5-1.130"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-orderdetails_app": "cds watch --open orderdetails_app/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "cds": {
+    "requires": {
+      "db": "sql",
+      "uaa": {
+        "kind": "xsuaa"
+      },
+      "auth": {
+        "[development]": {
+          "strategy": "mocked",
+          "users": {
+            "sam": {
+              "roles": [
+                "Viewer"
+              ],
+              "userAttributes": {
+                "OrderType": [
+                  "Standard"
+                ]
+              }
+            },
+            "binu": {
+              "roles": [
+                "Admin",
+                "Viewer"
+              ],
+              "userAttributes": {
+                "OrderType": [
+                  "Standard",
+                  "Express"
+                ]
+              }
+            }
+          }
+        },
+        "[production]": {
+          "strategy": "JWT"
+        }
+      }
+    }
+  }
+}
